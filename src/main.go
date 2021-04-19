@@ -144,6 +144,9 @@ func main() {
 			}
 		}()
 	})
+	w.Bind("customContextMenu", func(message string) {
+		w.CustomContextMenu(message)
+	})
 	w.Bind("onAddBookmark", func(url string) {
 		go func() {
 			bookmarkFile, err := os.OpenFile(bookmarkFilePath, os.O_CREATE|os.O_WRONLY|os.O_APPEND, 0666)

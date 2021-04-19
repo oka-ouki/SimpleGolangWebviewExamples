@@ -28,4 +28,10 @@ window.onload = function() {
         }
       }
     }, {passive: false} );
+  document.body.oncontextmenu = event => {
+    if (event.target.tagName === 'A') {
+      customContextMenu(event.target.tagName);
+      event.preventDefault();
+    }
+  };
 };
